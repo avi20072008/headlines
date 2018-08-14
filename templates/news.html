@@ -1,12 +1,22 @@
 <html>
     <head><title>News - Headlines</title></head>
     <body>
-        {{ articles[0]}}
-        <div>
-            <h1> Headlines </h1>
+        <!-- check dump data {{ articles[0]}} -->
+        <div style="width:50%;margin-left:100px;">
+            <div>
+                <form action="/search" method="GET">
+                    <div>
+                        <input type="text" name="pub" placeholder=" Search e.g BBC or CNN" style="height:25px;width:200px;">
+                        <input type="submit" value="Search">
+                    </div>
+
+                </form>
+            </div>
+
+            <h1> {{ publication.upper() }} Headlines </h1>
             {% for article in articles %}
                 <div>
-                    <h2><a href="{{ article.get('link')}}">{{ article.get('title')}}</a></h2>
+                    <b><a href="{{ article.get('link')}}">{{ article.get('title')}}</a></b><br/>
                     <i>{{ article.get('published') }}</i>
                     <p>{{ article.get('summary') }}</p>
                 </div> <hr/>
